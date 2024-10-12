@@ -1,45 +1,57 @@
-const goalTime = new Date('2020-11-27T22:55:45'); // الوقت المحدد للهدف
-const images = [
-    'https://mediaaws.almasryalyoum.com/news/verylarge/2021/03/05/1479321_0.jpeg',
-    'https://elsalam-int.com/imgs/b8a97eebd3cd-img.png',
-    'https://rosaelyoussef.com/UserFiles/News/2023/08/30/1114815.jpg?230830184643',
-    'https://alanwaralmsreah.com/wp-content/uploads/2020/12/127220365_2762028247343729_457655893314981887_o-780x470-1-780x405.jpg'
-];
+<script>
+    const targetDate = new Date('2020-11-27T22:55:45').getTime();
 
-let currentImageIndex = 0;
+    function updateCounter() {
+        const now = new Date().getTime();
+        const elapsedTime = now - targetDate;
 
-function changeBackground() {
-    currentImageIndex = (currentImageIndex + 1) % images.length;
-    document.body.style.backgroundImage = `url(${images[currentImageIndex]})`;
-}
+        // For countup (years, months, weeks, etc.)
+        let seconds = Math.floor(elapsedTime / 1000);
+        let minutes = Math.floor(seconds / 60);
+        let hours = Math.floor(minutes / 60);
+        let days = Math.floor(hours / 24);
+        let weeks = Math.floor(days / 7);
+        let months = Math.floor(days / 30.44);
+        let years = Math.floor(months / 12);
 
-// تغيير الصورة كل 25 ثانية
-setInterval(changeBackground, 25000);
+        // Update the countup elements
+        document.getElementById('secondsUp').innerText = `عدد الثواني: ${seconds % 60}`;
+        document.getElementById('minutesUp').innerText = `عدد الدقائق: ${minutes % 60}`;
+        document.getElementById('hoursUp').innerText = `عدد الساعات: ${hours % 24}`;
+        document.getElementById('daysUp').innerText = `عدد الأيام: ${days % 7}`;
+        document.getElementById('weeksUp').innerText = `عدد الأسابيع: ${weeks % 4}`;
+        document.getElementById('monthsUp').innerText = `عدد الشهور: ${months % 12}`;
+        document.getElementById('yearsUp').innerText = `عدد السنوات: ${years}`;
 
-// تحديث العداد
-const counter = setInterval(() => {
-    const now = new Date();
-    const difference = now - goalTime;
+        // For countdown (total seconds, minutes, etc.)
+        const totalSeconds = Math.floor(elapsedTime / 1000);
+        const totalMinutes = Math.floor(totalSeconds / 60);
+        const totalHours = Math.floor(totalMinutes / 60);
+        const totalDays = Math.floor(totalHours / 24);
+        const totalWeeks = Math.floor(totalDays / 7);
 
-    const seconds = Math.floor((difference / 1000) % 60);
-    const minutes = Math.floor((difference / (1000 * 60)) % 60);
-    const hours = Math.floor((difference / (1000 * 60 * 60)) % 24);
-    const days = Math.floor(difference / (1000 * 60 * 60 * 24));
-    const months = Math.floor(days / 30);
-    const years = Math.floor(days / 365);
+        document.getElementById('totalSeconds').innerText = `عدد الثواني: ${totalSeconds}`;
+        document.getElementById('totalMinutes').innerText = `عدد الدقائق: ${totalMinutes}`;
+        document.getElementById('totalHours').innerText = `عدد الساعات: ${totalHours}`;
+        document.getElementById('totalDays').innerText = `عدد الأيام: ${totalDays}`;
+        document.getElementById('totalWeeks').innerText = `عدد الأسابيع: ${totalWeeks}`;
+    }
 
-    document.getElementById('seconds').innerText = seconds;
-    document.getElementById('minutes').innerText = minutes;
-    document.getElementById('hours').innerText = hours;
-    document.getElementById('days').innerText = days;
-    document.getElementById('months').innerText = months;
-    document.getElementById('years').innerText = years;
+    function changeBackground() {
+        const images = [
+            '8545.jpeg',
+            '8546.png',
+            '8547.jpg',
+            '8548.jpg'
+        ];
 
-    // تحديث العداد منذ وقت الهدف
-    document.getElementById('totalSeconds').innerText = Math.floor((now - goalTime) / 1000);
-    document.getElementById('totalMinutes').innerText = Math.floor((now - goalTime) / (1000 * 60));
-    document.getElementById('totalHours').innerText = Math.floor((now - goalTime) / (1000 * 60 * 60));
-    document.getElementById('totalDays').innerText = Math.floor((now - goalTime) / (1000 * 60 * 60 * 24));
-    document.getElementById('totalWeeks').innerText = Math.floor((now - goalTime) / (1000 * 60 * 60 * 24 * 7));
-    document.getElementById('totalYears').innerText = Math.floor((now - goalTime) / (1000 * 60 * 60 * 24 * 365));
-}, 1000);
+        let currentIndex = 0;
+        setInterval(() => {
+            document.body.style.backgroundImage = `url('${images[currentIndex]}')`;
+            currentIndex = (currentIndex + 1) % images.length;
+        }, 25000);
+    }
+
+    setInterval(updateCounter, 1000);
+    changeBackground();
+</script>
