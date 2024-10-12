@@ -3,65 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <title>العداد التصاعدي</title>
+    <title>العد التصاعدي منذ هدف القاضية</title>
 </head>
 <body>
-    <div class="overlay">
-        <div class="counter">
-            <h1>العداد التصاعدي منذ هدف القاضية</h1>
-            <div class="time-unit">
-                <span id="years">0</span>
-                <label>عدد السنوات من احراز القاضية</label>
+
+<div class="overlay">
+    <div class="container">
+        <div class="section">
+            <h2>العد التصاعدي</h2>
+            <div id="countup">
+                <p id="yearsUp">0</p>
+                <p id="monthsUp">0</p>
+                <p id="weeksUp">0</p>
+                <p id="daysUp">0</p>
+                <p id="hoursUp">0</p>
+                <p id="minutesUp">0</p>
+                <p id="secondsUp">0</p>
             </div>
-            <div class="time-unit">
-                <span id="months">0</span>
-                <label>عدد الشهور من احراز القاضية</label>
-            </div>
-            <div class="time-unit">
-                <span id="days">0</span>
-                <label>عدد الأيام من احراز القاضية</label>
-            </div>
-            <div class="time-unit">
-                <span id="hours">0</span>
-                <label>عدد الساعات من احراز القاضية</label>
-            </div>
-            <div class="time-unit">
-                <span id="minutes">0</span>
-                <label>عدد الدقائق من احراز القاضية</label>
-            </div>
-            <div class="time-unit">
-                <span id="seconds">0</span>
-                <label>عدد الثواني من احراز القاضية</label>
-            </div>
-            <hr>
-            <h2>العداد منذ وقت الهدف</h2>
-            <div class="time-unit">
-                <span id="totalSeconds">0</span>
-                <label>عدد الثواني منذ هدف القاضية</label>
-            </div>
-            <div class="time-unit">
-                <span id="totalMinutes">0</span>
-                <label>عدد الدقائق منذ هدف القاضية</label>
-            </div>
-            <div class="time-unit">
-                <span id="totalHours">0</span>
-                <label>عدد الساعات منذ هدف القاضية</label>
-            </div>
-            <div class="time-unit">
-                <span id="totalDays">0</span>
-                <label>عدد الأيام منذ هدف القاضية</label>
-            </div>
-            <div class="time-unit">
-                <span id="totalWeeks">0</span>
-                <label>عدد الأسابيع منذ هدف القاضية</label>
-            </div>
-            <div class="time-unit">
-                <span id="totalYears">0</span>
-                <label>عدد السنوات منذ هدف القاضية</label>
+        </div>
+
+        <div class="section">
+            <h2>عدد الثواني والمكونات الأخرى</h2>
+            <div id="countdown">
+                <p id="totalSeconds">0</p>
+                <p id="totalMinutes">0</p>
+                <p id="totalHours">0</p>
+                <p id="totalDays">0</p>
+                <p id="totalWeeks">0</p>
             </div>
         </div>
     </div>
-    <script src="script.js"></script>
+</div>
+
 </body>
 </html>
